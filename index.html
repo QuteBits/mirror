@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Scraper</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+    <script type="text/javascript" src="lib/codemirror.js"></script>
+    <script type="text/javascript" src="lib/markdown_mode.js"></script>
+    <link type="text/css" rel="stylesheet" href="lib/codemirror.css" media="all">
+
+    <script type="text/javascript" src="lib/markdown.min.js"></script>
+    <script type="text/javascript" src="lib/jquery-1.11.1.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+    <link type="text/css" rel="stylesheet" href="style.css" media="all">
+  </head>
+  <body>
+    <div id="left"></div>
+    <div id="right"></div>
+    <script>
+      var code = CodeMirror(document.getElementById('left'));
+
+      setInterval( function() {
+        $('#right').html(markdown.toHTML( code.doc.getValue() ))
+      }, 1000)
+    </script>
+  </body>
+</html>
